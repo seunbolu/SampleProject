@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SampleProject.Models.Session>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Session List</h2>
+<button type="submit" onclick="window.location='@Url.Action("New", "Session")'">New Subject</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Session ID</th>
+            <th>Session Name</th>
+            <th>Session StartDate</th>
+            <th>Session EndDate</th>
+
+
+
+</thead>
+    <tbody class="abc">
+        @if (!Model.Any())
+        {
+        }
+        else
+        {
+
+            foreach (var Sub in Model)
+            {
+                <tr>
+                    <td>    @Sub.SessionId </td>
+                    <td>    @Sub.Name </td>
+                    <td>    @Sub.StartDate</td>
+                    <td>    @Sub.EndDate   </td>
+
+                    <td>
+
+                        <a href="@Url.Action("Edit", new { id = Sub.SessionId})" class="btn btn-warning shiny input-xs"><i class="btn-label glyphicon glyphicon-edit"></i></a>
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("Delete", new { id = Sub.SessionId })" new { onclick="return confirm('Are you sure you want to delete this record?');" class="btn btn-danger shiny input-xs"><i class="btn-label glyphicon glyphicon-remove-circle"></i></a>
+
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

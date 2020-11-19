@@ -1,0 +1,26 @@
+﻿@model SampleProject.Models.Class
+
+<h2>New Class</h2>
+
+
+
+
+@using (Html.BeginForm("Create", "Class", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+
+    @Html.LabelFor(m => m.ClassName)
+    @Html.TextBoxFor(m => m.ClassName)
+    <br />
+
+    @Html.LabelFor(m => m.Detail)
+    @Html.TextBoxFor(m => m.Detail)
+
+
+    <br />
+
+    @Html.HiddenFor(m => m.Id)
+    <button type="submit" class="btn btn-info shiny">Save</button>
+
+}

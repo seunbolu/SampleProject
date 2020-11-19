@@ -1,0 +1,25 @@
+﻿@model SampleProject.Models.Subject
+
+<h2>New Subject</h2>
+
+
+
+
+@using (Html.BeginForm("Create", "Subject", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+
+    @Html.LabelFor(m => m.SubjectName)
+    @Html.TextBoxFor(m => m.SubjectName)
+    <br />
+
+
+
+
+    <br />
+
+    @Html.HiddenFor(m => m.SubjectId)
+ <button type="submit" class="btn btn-info shiny">Save</button>
+
+}

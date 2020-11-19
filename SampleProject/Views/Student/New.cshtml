@@ -1,0 +1,48 @@
+﻿@model SampleProject.Models.Student
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Student</h2>
+
+
+
+
+@using (Html.BeginForm("Create", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.LabelFor(m => m.RegId)
+    @Html.TextBoxFor(m => m.RegId)
+    <br />
+    @Html.LabelFor(m => m.StudentName)
+    @Html.TextBoxFor(m => m.StudentName)
+    <br />
+
+    @Html.LabelFor(m => m.FatherName)
+    @Html.TextBoxFor(m => m.FatherName)
+    <br />
+
+    @Html.LabelFor(m => m.MobileNo)
+    @Html.TextBoxFor(m => m.MobileNo)
+    <br />
+
+    @Html.LabelFor(m => m.Address)
+    @Html.TextBoxFor(m => m.Address)
+    <br />
+
+    @Html.LabelFor(m => m.City)
+    @Html.TextBoxFor(m => m.City)
+    <br />
+
+    @Html.LabelFor(m => m.Gender)
+    @Html.TextBoxFor(m => m.Gender)
+
+
+    <br />
+
+    @Html.HiddenFor(m => m.StudentId)
+
+    <button type="submit" class="btn btn-info shiny">Save</button>
+
+}

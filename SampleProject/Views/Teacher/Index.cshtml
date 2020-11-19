@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SampleProject.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Teacher List</h2>
+<button type="submit" onclick="window.location='@Url.Action("New", "Teacher")'">New Teacher</button>
+
+<table>
+    <thead>
+        <tr>
+           
+            <th>Teacher Name</th>
+            <th>Father Name</th>
+            <th>Action</th>
+
+    </thead>
+    <tbody class="abc">
+        @if (!Model.Any())
+        {
+        }
+        else
+        {
+
+            foreach (var _teacher in Model)
+            {
+                <tr>
+                     <td>    @_teacher.TeacherId  </td>
+                    <td>    @_teacher.TeacherName   </td>
+                    <td>    @_teacher.FatherName   </td>
+                   
+                    <td>
+
+                        <a href="@Url.Action("Edit", new { id = _teacher.TeacherId })" class="btn btn-warning shiny input-xs"><i class="btn-label glyphicon glyphicon-edit"></i></a>
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("Delete", new { id = _teacher.TeacherId })" new { onclick="return confirm('Are you sure you want to delete this record?');" class="btn btn-danger shiny input-xs"><i class="btn-label glyphicon glyphicon-remove-circle"></i></a>
+
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
+

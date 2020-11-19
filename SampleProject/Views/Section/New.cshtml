@@ -1,0 +1,25 @@
+﻿@model SampleProject.Models.Section
+
+<h2>New Section</h2>
+
+
+
+
+@using (Html.BeginForm("Create", "Section", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+
+   
+
+
+    <br />
+
+    @Html.HiddenFor(m => m.SectionId)
+    <button type="submit" class="btn btn-info shiny">Save</button>
+
+}

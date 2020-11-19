@@ -1,0 +1,42 @@
+﻿@model SampleProject.Models.Teacher
+
+<h2>New Teacher</h2>
+
+
+
+
+@using (Html.BeginForm("Create", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+
+    @Html.LabelFor(m => m.TeacherName)
+    @Html.TextBoxFor(m => m.TeacherName)
+    <br />
+
+    @Html.LabelFor(m => m.FatherName)
+    @Html.TextBoxFor(m => m.FatherName)
+    <br />
+
+    @Html.LabelFor(m => m.MobileNo)
+    @Html.TextBoxFor(m => m.MobileNo)
+    <br />
+
+    @Html.LabelFor(m => m.Address)
+    @Html.TextBoxFor(m => m.Address)
+    <br />
+
+    @Html.LabelFor(m => m.City)
+    @Html.TextBoxFor(m => m.City)
+    <br />
+
+    @Html.LabelFor(m => m.Gender)
+    @Html.TextBoxFor(m => m.Gender)
+
+
+    <br />
+
+    @Html.HiddenFor(m => m.TeacherId)
+    <button type="submit" class="btn btn-info shiny">Save</button>
+
+}

@@ -1,0 +1,31 @@
+﻿@model SampleProject.Models.Session
+
+<h2>New Session</h2>
+
+
+
+
+@using (Html.BeginForm("Create", "Session", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+
+    @Html.LabelFor(m => m.StartDate)
+    @Html.TextBoxFor(m => m.StartDate)
+    <br />
+
+    @Html.LabelFor(m => m.EndDate)
+    @Html.TextBoxFor(m => m.EndDate)
+    <br />
+
+
+    <br />
+
+    @Html.HiddenFor(m => m.SessionId)
+    <button type="submit" class="btn btn-info shiny">Save</button>
+
+}

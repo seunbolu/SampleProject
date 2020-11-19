@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SampleProject.Models.Section>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Section List</h2>
+<button type="submit" onclick="window.location='@Url.Action("New", "Section")'">New Subject</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Section ID</th>
+            <th>Section Name</th>
+            
+
+
+
+    </thead>
+    <tbody class="abc">
+        @if (!Model.Any())
+        {
+        }
+        else
+        {
+
+            foreach (var Sub in Model)
+            {
+                <tr>
+                    <td>    @Sub.SectionId </td>
+                    <td>    @Sub.Name </td>
+                    
+
+                    <td>
+
+                        <a href="@Url.Action("Edit", new { id = Sub.SectionId})" class="btn btn-warning shiny input-xs"><i class="btn-label glyphicon glyphicon-edit"></i></a>
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("Delete", new { id = Sub.SectionId })" new { onclick="return confirm('Are you sure you want to delete this record?');" class="btn btn-danger shiny input-xs"><i class="btn-label glyphicon glyphicon-remove-circle"></i></a>
+
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

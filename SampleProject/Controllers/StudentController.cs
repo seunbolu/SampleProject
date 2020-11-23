@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+using SampleProject.ViewModel;
 namespace SampleProject.Controllers
 {
     public class StudentController : Controller
@@ -27,29 +27,38 @@ namespace SampleProject.Controllers
             var lststudent = _context.Students.ToList();
             return View(lststudent);
         }
-        public ActionResult New()
+        public ActionResult New(Student student)
         {
-            return View();
+
+            var viewModel = new CityViewModel
+            {
+                cities = _context.Cities.ToList(),
+                Classes = _context.tbl_Class.ToList(),
+                Sessions = _context.Sessions.ToList(),
+                student=student
+
+            };
+            return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Create(Student student)
+        public ActionResult Create(CityViewModel cityViewModel)
         {
-            if (student.StudentId == 0)
+            if (cityViewModel.student.StudentId == 0)
             {
-                _context.Students.Add(student);
+                _context.Students.Add(cityViewModel.student);
 
             }
             else
             {
-                var studentdb = _context.Students.Single(c => c.StudentId == student.StudentId);
-                studentdb.RegId = student.RegId;
-                studentdb.StudentName = student.StudentName;
-                studentdb.FatherName = student.FatherName;
-                studentdb.MobileNo = student.MobileNo;
-                studentdb.Address = student.Address;
-                studentdb.City = student.City;
-                studentdb.Gender = student.Gender;
+                var studentdb = _context.Students.Single(c => c.StudentId == cityViewModel.student.StudentId);
+                studentdb.RegId = cityViewModel.student.RegId;
+                studentdb.StudentName = cityViewModel.student.StudentName;
+                studentdb.FatherName = cityViewModel.student.FatherName;
+                studentdb.MobileNo = cityViewModel.student.MobileNo;
+                studentdb.Address = cityViewModel.student.Address;
+                studentdb.City = cityViewModel.student.City;
+                studentdb.Gender = cityViewModel.student.Gender;
 
             }
             _context.SaveChanges();
@@ -63,7 +72,14 @@ namespace SampleProject.Controllers
             if (student == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            return View("New", student);
+            var viewModel = new CityViewModel
+            {
+                cities = _context.Cities.ToList(),
+                student = student
+
+            };
+
+            return View("New", viewModel);
         }
         public ActionResult Delete(int Id)
         {

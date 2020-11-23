@@ -232,6 +232,10 @@
     <Compile Include="Migrations\202011190922029_CityTable.Designer.cs">
       <DependentUpon>202011190922029_CityTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011230753516_AddCityToStudent.cs" />
+    <Compile Include="Migrations\202011230753516_AddCityToStudent.Designer.cs">
+      <DependentUpon>202011230753516_AddCityToStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -245,6 +249,7 @@
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\CityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -372,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011190922029_CityTable.resx">
       <DependentUpon>202011190922029_CityTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011230753516_AddCityToStudent.resx">
+      <DependentUpon>202011230753516_AddCityToStudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

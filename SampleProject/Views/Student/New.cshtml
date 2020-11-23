@@ -1,4 +1,4 @@
-﻿@model SampleProject.Models.Student
+﻿@model SampleProject.ViewModel.CityViewModel
 
 @{
     ViewBag.Title = "New";
@@ -12,36 +12,42 @@
 @using (Html.BeginForm("Create", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
-    @Html.LabelFor(m => m.RegId)
-    @Html.TextBoxFor(m => m.RegId)
+    @Html.LabelFor(m => m.student.RegId)
+    @Html.TextBoxFor(m => m.student.RegId)
     <br />
-    @Html.LabelFor(m => m.StudentName)
-    @Html.TextBoxFor(m => m.StudentName)
-    <br />
-
-    @Html.LabelFor(m => m.FatherName)
-    @Html.TextBoxFor(m => m.FatherName)
+    @Html.LabelFor(m => m.student.StudentName)
+    @Html.TextBoxFor(m => m.student.StudentName)
     <br />
 
-    @Html.LabelFor(m => m.MobileNo)
-    @Html.TextBoxFor(m => m.MobileNo)
+    @Html.LabelFor(m => m.student.FatherName)
+    @Html.TextBoxFor(m => m.student.FatherName)
     <br />
 
-    @Html.LabelFor(m => m.Address)
-    @Html.TextBoxFor(m => m.Address)
+    @Html.LabelFor(m => m.student.MobileNo)
+    @Html.TextBoxFor(m => m.student.MobileNo)
     <br />
 
-    @Html.LabelFor(m => m.City)
-    @Html.TextBoxFor(m => m.City)
+    @Html.LabelFor(m => m.student.Address)
+    @Html.TextBoxFor(m => m.student.Address)
     <br />
 
-    @Html.LabelFor(m => m.Gender)
-    @Html.TextBoxFor(m => m.Gender)
+    @Html.LabelFor(m => m.student.City)
+    @Html.DropDownListFor(m => m.student.City, new SelectList(Model.cities, "Name", "Name"), "Select City", htmlAttributes: new { @class = "form-control input-xs" })
+    <br />
+    @Html.LabelFor(m => m.student.Class)
+    @Html.DropDownListFor(m => m.student.Class, new SelectList(Model.Classes, "ClassName", "ClassName"), "Select Class", htmlAttributes: new { @class = "form-control input-xs" })
+    <br />
+    @Html.LabelFor(m => m.student.Session)
+    @Html.DropDownListFor(m => m.student.Session, new SelectList(Model.Sessions, "Name", "Name"), "Select Session", htmlAttributes: new { @class = "form-control input-xs" })
+    <br />
+
+    @Html.LabelFor(m => m.student.Gender)
+    @Html.TextBoxFor(m => m.student.Gender)
 
 
     <br />
 
-    @Html.HiddenFor(m => m.StudentId)
+    @Html.HiddenFor(m => m.student.StudentId)
 
     <button type="submit" class="btn btn-info shiny">Save</button>
 
